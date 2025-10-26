@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanjeev Kumar - Java Architect & Engineering Manager</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles and configuration */
+        :root {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar for better aesthetics on desktop */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b; /* slate-800 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4f46e5; /* indigo-600 */
+            border-radius: 4px;
+        }
+        /* Style for the sticky nav */
+        .sticky-nav-active {
+            background-color: #0f172a; /* slate-900 */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+        /* Skill bar animation */
+        .skill-bar-inner {
+            transition: width 1.5s ease-out;
+            width: 0; /* Start at 0 width */
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#4f46e5', // Indigo-600
+                        'background': '#0f172a', // Slate-900
+                        'card': '#1e293b', // Slate-800
+                        'text-light': '#f8fafc', // Slate-50
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-text-light min-h-screen">
+
+    <!-- 1. Sticky Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition duration-300 py-3">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <a href="#hero" class="text-xl font-bold tracking-wider text-text-light hover:text-primary transition">Sanjeev Kumar</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-300 hover:text-primary transition duration-200">About</a>
+                <a href="#experience" class="text-gray-300 hover:text-primary transition duration-200">Experience</a>
+                <a href="#skills" class="text-gray-300 hover:text-primary transition duration-200">Skills</a>
+                <a href="#projects" class="text-gray-300 hover:text-primary transition duration-200">Projects</a>
+                <a href="#contact" class="text-gray-300 hover:text-primary transition duration-200">Contact</a>
+            </div>
+            <!-- Mobile Menu Toggle (Simplified for this single file) -->
+            <button class="md:hidden text-gray-300 hover:text-primary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto pt-20 px-4 sm:px-6 lg:px-8">
+
+        <!-- 2. Hero Section -->
+        <section id="hero" class="py-24 md:py-32 flex flex-col md:flex-row items-center justify-between gap-10">
+            <div class="md:w-3/5 text-center md:text-left">
+                <p class="text-primary text-xl font-semibold mb-3 tracking-widest uppercase">Hello, I'm</p>
+                <h1 class="text-6xl md:text-7xl font-extrabold leading-tight mb-6">Sanjeev Kumar</h1>
+                <h2 class="text-3xl md:text-4xl text-gray-300 font-light mb-8">Java Architect & Engineering Manager (9.5+ Years)</h2>
+                <p class="text-lg text-gray-400 max-w-xl mb-10">
+                    Experienced in designing, developing, and maintaining scalable Java applications using SpringBoot and Microservices Architecture. Proven ability to lead agile teams, mentor juniors, and leverage Generative AI tools to boost development efficiency and quality.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="https://placehold.co/400x100/4f46e5/ffffff?text=DOWNLOAD+RESUME" target="_blank" class="bg-primary text-text-light font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-indigo-700 transition duration-300 transform hover:scale-105">
+                        Download CV (PDF)
+                    </a>
+                    <a href="#projects" class="border border-primary text-primary font-bold py-3 px-8 rounded-lg hover:bg-primary hover:text-background transition duration-300">
+                        View Projects
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-2/5 flex justify-center">
+                <!-- Placeholder for Profile Picture -->
+                <div class="w-64 h-64 md:w-80 md:h-80 bg-card rounded-full overflow-hidden border-4 border-primary shadow-2xl">
+                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQGJCVOOow9Z5Q/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1667516245173?e=1762992000&v=beta&t=V2j5c7X9L6JTbS3psHeNyRbhZZMR5PJ9cTsxDujToNI" alt="Sanjeev Kumar Profile" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- General Section Structure -->
+        <div class="space-y-24 py-16">
+
+            <!-- 3. About Me Section -->
+            <section id="about" class="pt-16">
+                <h3 class="text-4xl font-bold mb-6 border-b border-primary pb-2 inline-block">About Me</h3>
+                <div class="grid md:grid-cols-2 gap-10 text-lg text-gray-400">
+                    <p>I am a seasoned Java developer with 9.5+ years of experience, specializing in the Spring ecosystem (Spring Boot 3+, Spring Security, Spring Batch, and JPA). My core expertise lies in object-oriented programming, test-driven development (JUnit, Mockito), and implementing established design patterns like MVC and Singleton to ensure robust, maintainable code.</p>
+                    <p>Beyond technical depth, I have strong **Leadership Skills** and a proven track record in **Project Management**. I've conducted over **200+ external interviews** for Java roles, demonstrating a deep understanding of industry demand. I actively incorporate **Generative AI Tools** (like GitHub Copilot) into my workflow to significantly improve programming efficiency and code quality.</p>
+                </div>
+            </section>
+
+            <!-- 4. Experience Section -->
+            <section id="experience" class="pt-16">
+                <h3 class="text-4xl font-bold mb-10 border-b border-primary pb-2 inline-block">Career Timeline</h3>
+
+                <div class="relative">
+                    <!-- Timeline Line -->
+                    <div class="absolute left-3 md:left-1/2 top-0 bottom-0 w-1 bg-card rounded-full transform -translate-x-1/2 hidden md:block"></div>
+
+                    <!-- Item 1: Current Role (Manager/Architect) -->
+                    <div class="mb-12 flex flex-col md:flex-row justify-start md:justify-end md:even:justify-start w-full relative">
+                        <div class="md:w-1/2 md:even:order-2 p-4 md:p-8 rounded-xl bg-card shadow-xl transition hover:shadow-primary/50">
+                            <h4 class="text-2xl font-semibold text-primary">Engineering Manager/Architect</h4>
+                            <p class="text-xl text-gray-300 mt-1">Cognizant Technology Solutions</p>
+                            <p class="text-sm text-gray-500 mb-4">Dec 2022 – Present</p>
+                            <ul class="list-disc list-outside space-y-2 text-gray-400 pl-5">
+                                <li>Drive architectural decisions for large-scale enterprise applications, focusing on Microservices and SpringBoot 3.3.</li>
+                                <li>Lead the development and deployment of high-performance REST APIs for key business functionalities.</li>
+                                <li>Act as a hiring manager, conducting over 200 technical interviews for Java/SpringBoot roles up to 8 years of experience.</li>
+                                <li>Champion the integration of Generative AI tools to streamline development pipelines and increase team velocity.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Item 2: Previous Role (Sr. Software Engineer) -->
+                    <div class="mb-12 flex flex-col md:flex-row justify-start md:justify-start md:odd:justify-end w-full relative">
+                        <div class="md:w-1/2 md:odd:order-2 p-4 md:p-8 rounded-xl bg-card shadow-xl transition hover:shadow-primary/50">
+                            <h4 class="text-2xl font-semibold text-primary">Sr. Software Engineer</h4>
+                            <p class="text-xl text-gray-300 mt-1">Java Ventures International Pvt Ltd</p>
+                            <p class="text-sm text-gray-500 mb-4">Dec 2018 – Dec 2022</p>
+                            <ul class="list-disc list-outside space-y-2 text-gray-400 pl-5">
+                                <li>Full-stack development of enterprise solutions using **SpringBoot**, **Hibernate**, and **Angular 6** (Basic).</li>
+                                <li>Involved in both new development and complex migration projects.</li>
+                                <li>Utilized **Spring Security** and **OAuth** standards to build secure, robust applications.</li>
+                                <li>Applied Test-Driven Development (TDD) principles using **JUnit** and **Mockito**.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Item 3: Initial Role (Programmer Analyst) -->
+                    <div class="mb-12 flex flex-col md:flex-row justify-start md:justify-end md:even:justify-start w-full relative">
+                        <div class="md:w-1/2 md:even:order-2 p-4 md:p-8 rounded-xl bg-card shadow-xl transition hover:shadow-primary/50">
+                            <h4 class="text-2xl font-semibold text-primary">Programmer Analyst</h4>
+                            <p class="text-xl text-gray-300 mt-1">Cognizant Technology Solutions</p>
+                            <p class="text-sm text-gray-500 mb-4">June 2016 – Dec 2018</p>
+                            <ul class="list-disc list-outside space-y-2 text-gray-400 pl-5">
+                                <li>Contributed to **Production Support** and maintenance activities early in career.</li>
+                                <li>Gained foundational knowledge in enterprise Java technologies including **JSP**, **Servlet**, and **JDBC**.</li>
+                                <li>Awarded **“Star Performer of Team”** for exceptional performance in managed services project.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Item 4: Education -->
+                    <div class="mb-12 flex flex-col md:flex-row justify-start md:justify-start md:odd:justify-end w-full relative">
+                        <div class="md:w-1/2 md:odd:order-2 p-4 md:p-8 rounded-xl bg-card shadow-xl transition hover:shadow-primary/50">
+                            <h4 class="text-2xl font-semibold text-primary">B.E. (Electronics and Communication)</h4>
+                            <p class="text-xl text-gray-300 mt-1">BIT Mesra</p>
+                            <p class="text-sm text-gray-500 mb-4">2012 – 2016</p>
+                            <ul class="list-disc list-outside space-y-2 text-gray-400 pl-5">
+                                <li>Cleared IIT JEE 2012 with a rank of OB4077.</li>
+                                <li>Completed coursework with a focus on core engineering and problem-solving skills.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. Skills Section -->
+            <section id="skills" class="pt-16">
+                <h3 class="text-4xl font-bold mb-10 border-b border-primary pb-2 inline-block">Technical Skills</h3>
+
+                <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 text-lg">
+
+                    <!-- Skill Category 1: Core Java & Spring Ecosystem -->
+                    <div>
+                        <h4 class="text-2xl font-semibold mb-4 text-primary">Core Java & Spring Ecosystem</h4>
+                        <div class="space-y-4" data-category>
+                            <div class="skill-item" data-skill-level="80">
+                                <p class="flex justify-between">Java 8+ <span class="text-gray-400">⭐⭐⭐⭐</span></p>
+                                <div class="w-full h-2 bg-card rounded-full overflow-hidden"><div class="skill-bar-inner h-2 bg-indigo-500" style="width:0;"></div></div>
+                            </div>
+                            <div class="skill-item" data-skill-level="100">
+                                <p class="flex justify-between">Spring MVC <span class="text-gray-400">⭐⭐⭐⭐⭐</span></p>
+                                <div class="w-full h-2 bg-card rounded-full overflow-hidden"><div class="skill-bar-inner h-2 bg-indigo-500" style="width:0;"></div></div>
+                            </div>
+                            <div class="skill-item" data-skill-level="80">
+                                <p class="flex justify-between">Spring Boot 3+ <span class="text-gray-400">⭐⭐⭐⭐</span></p>
+                                <div class="w-full h-2 bg-card rounded-full overflow-hidden"><div class="skill-bar-inner h-2 bg-indigo-500" style="width:0;"></div></div>
+                            </div>
+                            <div class="skill-item" data-skill-level="80">
+                                <p class="flex justify-between">Spring JPA / Hibernate <span class="text-gray-400">⭐⭐⭐⭐</span></p>
+                                <div class="w-full h-2 bg-card rounded-full overflow-hidden"><div class="skill-bar-inner h-2 bg-indigo-500" style="width:0;"></div></div>
+                            </div>
+                            <div class="skill-item" data-skill-level="80">
+                                <p class="flex justify-between">Spring Batch <span class="text-gray-400">⭐⭐⭐⭐</span></p>
+                                <div class="w-full h-2 bg-card rounded-full overflow-hidden"><div class="skill-bar-inner h-2 bg-indigo-500" style="width:0;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill Category 2: Architecture & Tools -->
+                    <div>
+                        <h4 class="text-2xl font-semibold mb-4 text-primary">Architecture & Tools</h4>
+                        <div class="space-y-4" data-category>
+                            <div class="skill-item" data-skill-level="100">
+                                <p class="flex justify-between">Generative AI Tools <span class="text-gray-400">⭐⭐⭐⭐⭐</span></p>
+                                <div class="w-full h-2 bg-card rounded-full overflow-hidden"><div class="skill-bar-inner h-2 bg-indigo-500" style="width:0;"></div></div>
+                            </div>
+                            <div class="skill-item" data-skill-level="80">
+                                <p class="flex justify-between">GitHub Copilot <span class="text-gray-400">⭐⭐⭐⭐</span></p>
+                                <div class="w-full h-2 bg-card rounded-full overflow-hidden"><div class="skill-bar-inner h-2 bg-indigo-500" style="width:0;"></div></div>
+                            </div>
+                            <div class="skill-item" data-skill-level="60">
+                                <p class="flex justify-between">Microservices Arch. <span class="text-gray-400">⭐⭐⭐</span></p>
+                                <div class="w-full h-2 bg-card rounded-full overflow-hidden"><div class="skill-bar-inner h-2 bg-indigo-500" style="width:0;"></div></div>
+                            </div>
+                            <div class="skill-item" data-skill-level="100">
+                                <p class="flex justify-between">Apache Tomcat <span class="text-gray-400">⭐⭐⭐⭐⭐</span></p>
+                                <div class="w-full h-2 bg-card rounded-full overflow-hidden"><div class="skill-bar-inner h-2 bg-indigo-500" style="width:0;"></div></div>
+                            </div>
+                            <div class="skill-item" data-skill-level="100">
+                                <p class="flex justify-between">Maven <span class="text-gray-400">⭐⭐⭐⭐⭐</span></p>
+                                <div class="w-full h-2 bg-card rounded-full overflow-hidden"><div class="skill-bar-inner h-2 bg-indigo-500" style="width:0;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill Category 3: APIs, Databases & Front-end -->
+                    <div>
+                        <h4 class="text-2xl font-semibold mb-4 text-primary">APIs, Databases & Front-end</h4>
+                        <div class="space-y-4" data-category>
+                            <div class="skill-item" data-skill-level="80">
+                                <p class="flex justify-between">REST & SOAP APIs <span class="text-gray-400">⭐⭐⭐⭐</span></p>
+                                <div class="w-full h-2 bg-card rounded-full overflow-hidden"><div class="skill-bar-inner h-2 bg-indigo-500" style="width:0;"></div></div>
+                            </div>
+                            <div class="skill-item" data-skill-level="80">
+                                <p class="flex justify-between">MySQL / Oracle 10g <span class="text-gray-400">⭐⭐⭐⭐</span></p>
+                                <div class="w-full h-2 bg-card rounded-full overflow-hidden"><div class="skill-bar-inner h-2 bg-indigo-500" style="width:0;"></div></div>
+                            </div>
+                            
+                            <div class="skill-item" data-skill-level="60">
+                                <p class="flex justify-between">HTML5 & CSS3 <span class="text-gray-400">⭐⭐⭐</span></p>
+                                <div class="w-full h-2 bg-card rounded-full overflow-hidden"><div class="skill-bar-inner h-2 bg-indigo-500" style="width:0;"></div></div>
+                            </div>
+                            <div class="skill-item" data-skill-level="40">
+                                <p class="flex justify-between">Angular 6 (Basic) <span class="text-gray-400">⭐⭐</span></p>
+                                <div class="w-full h-2 bg-card rounded-full overflow-hidden"><div class="skill-bar-inner h-2 bg-indigo-500" style="width:0;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 6. Projects Section -->
+            <section id="projects" class="pt-16">
+                <h3 class="text-4xl font-bold mb-10 border-b border-primary pb-2 inline-block">Professional & Personal Projects</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <!-- Project Card 1: US - Mercury Insurance project -->
+                    <div class="bg-card rounded-xl p-6 shadow-2xl hover:shadow-primary/30 transition duration-300 transform hover:-translate-y-1">
+                        <h4 class="text-2xl font-semibold mb-3 text-primary">US - Mercury Insurance Project</h4>
+                        <p class="text-gray-400 mb-4">Developed and maintained a Microservices-based insurance application, focusing on high-volume transactions and core business logic via REST APIs.</p>
+                        <div class="flex flex-wrap gap-2 text-sm mb-4">
+                            <span class="bg-indigo-900/50 text-indigo-300 py-1 px-3 rounded-full">SpringBoot 3.3</span>
+                            <span class="bg-indigo-900/50 text-indigo-300 py-1 px-3 rounded-full">Spring Batch</span>
+                            <span class="bg-indigo-900/50 text-indigo-300 py-1 px-3 rounded-full">Microservices</span>
+                            <span class="bg-indigo-900/50 text-indigo-300 py-1 px-3 rounded-full">Spring JPA</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-gray-300 hover:text-primary transition duration-200 font-medium">Read More &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2: US Banking project -->
+                    <div class="bg-card rounded-xl p-6 shadow-2xl hover:shadow-primary/30 transition duration-300 transform hover:-translate-y-1">
+                        <h4 class="text-2xl font-semibold mb-3 text-primary">US Banking / HR Application</h4>
+                        <p class="text-gray-400 mb-4">Full-stack development for an HR-focused banking application, managing employee data and payment services through secure REST APIs.</p>
+                        <div class="flex flex-wrap gap-2 text-sm mb-4">
+                            <span class="bg-indigo-900/50 text-indigo-300 py-1 px-3 rounded-full">Spring Boot</span>
+                            <span class="bg-indigo-900/50 text-indigo-300 py-1 px-3 rounded-full">Hibernate</span>
+                            <span class="bg-indigo-900/50 text-indigo-300 py-1 px-3 rounded-full">Angular 6</span>
+                            <span class="bg-indigo-900/50 text-indigo-300 py-1 px-3 rounded-full">SQL</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-gray-300 hover:text-primary transition duration-200 font-medium">Read More &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3: Personal Project - Script to Video -->
+                    <div class="bg-card rounded-xl p-6 shadow-2xl hover:shadow-primary/30 transition duration-300 transform hover:-translate-y-1">
+                        <h4 class="text-2xl font-semibold mb-3 text-primary">Script to Video Automation</h4>
+                        <p class="text-gray-400 mb-4">To Be Launched : Web APP MakeAIVideo.in -designed to convert text scripts into video content, exploring Generative AI and media processing libraries.</p>
+                        <div class="flex flex-wrap gap-2 text-sm mb-4">
+                            <span class="bg-indigo-900/50 text-indigo-300 py-1 px-3 rounded-full">Generative AI</span>
+                            <span class="bg-indigo-900/50 text-indigo-300 py-1 px-3 rounded-full">Python</span>
+                            <span class="bg-indigo-900/50 text-indigo-300 py-1 px-3 rounded-full">Media Processing</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-gray-300 hover:text-primary transition duration-200 font-medium">GitHub &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 4: NEW AI Project - My PolieciesAI -->
+                    <div class="bg-card rounded-xl p-6 shadow-2xl hover:shadow-primary/30 transition duration-300 transform hover:-translate-y-1">
+                        <h4 class="text-2xl font-semibold mb-3 text-primary">My Policies AI (RAG-Powered Q&A)</h4>
+                        <p class="text-gray-400 mb-4">Developed a **Retrieval-Augmented Generation (RAG)** based web app to deliver highly curated, context-specific answers from supplied policy documents, ensuring accuracy and relevancy.</p>
+                        <div class="flex flex-wrap gap-2 text-sm mb-4">
+                            <span class="bg-indigo-900/50 text-indigo-300 py-1 px-3 rounded-full">RAG Architecture</span>
+                            <span class="bg-indigo-900/50 text-indigo-300 py-1 px-3 rounded-full">Python</span>
+                            <span class="bg-indigo-900/50 text-indigo-300 py-1 px-3 rounded-full">Vector Database</span>
+                            <span class="bg-indigo-900/50 text-indigo-300 py-1 px-3 rounded-full">Web App</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-gray-300 hover:text-primary transition duration-200 font-medium">View Demo &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 5: NEW AI Project - AI Agent -->
+                    <div class="bg-card rounded-xl p-6 shadow-2xl hover:shadow-primary/30 transition duration-300 transform hover:-translate-y-1">
+                        <h4 class="text-2xl font-semibold mb-3 text-primary">Multi-Capability AI Agent</h4>
+                        <p class="text-gray-400 mb-4">Created an autonomous AI Agent framework using the **MCP protocol** to handle complex requests via chat, including sending emails and performing chained API calls for task automation.</p>
+                        <div class="flex flex-wrap gap-2 text-sm mb-4">
+                            <span class="bg-indigo-900/50 text-indigo-300 py-1 px-3 rounded-full">AI Agents</span>
+                            <span class="bg-indigo-900/50 text-indigo-300 py-1 px-3 rounded-full">MCP Protocol</span>
+                            <span class="bg-indigo-900/50 text-indigo-300 py-1 px-3 rounded-full">Python</span>
+                            <span class="bg-indigo-900/50 text-indigo-300 py-1 px-3 rounded-full">Task Automation</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-gray-300 hover:text-primary transition duration-200 font-medium">View Code &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. Contact Section -->
+            <section id="contact" class="pt-16 pb-32">
+                <h3 class="text-4xl font-bold mb-10 border-b border-primary pb-2 inline-block">Get In Touch</h3>
+                <div class="bg-card p-8 rounded-xl shadow-2xl max-w-2xl mx-auto text-center">
+                    <p class="text-xl text-gray-300 mb-6">Interested in Software Engineering Manager & Java Architect with Focus on AI driven Development roles. Let's connect!</p>
+                    <a href="mailto:sanjeevjmt1@gmail.com" class="bg-primary text-text-light font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-indigo-700 transition duration-300 inline-block">
+                        Email Me: Sanjeevjmt1@gmail.com
+                    </a>
+
+                    <div class="mt-8 flex justify-center space-x-6">
+                        <!-- LinkedIn Icon -->
+                        <a href="https://www.linkedin.com/in/meetsanjeev/" target="_blank" class="text-gray-400 hover:text-primary transition" aria-label="LinkedIn">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.564-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.793 7 3.514v5.721z"/></svg>
+                        </a>
+                        <!-- GitHub Icon (Placeholder) -->
+                        <a href="#" target="_blank" class="text-gray-400 hover:text-primary transition" aria-label="GitHub">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.082-.778.082-.76.082-.76 1.205.086 1.838 1.234 1.838 1.234 1.077 1.834 2.809 1.305 3.493.998.108-.778.419-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.118-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.003.404 2.292-1.552 3.3-.873 3.3-.873.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.922.43.37.823 1.102.823 2.222v3.293c0 .319.192.694.8.576c4.766-1.587 8.204-6.085 8.204-11.389 0-6.627-5.373-12-12-12z"/></svg>
+                        </a>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-4">Bangalore, Karnataka, India | Mo: +91 7979909381</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 8. Footer -->
+    <footer class="bg-card text-gray-500 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            <p>&copy; <span id="current-year"></span> Sanjeev Kumar</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-primary text-text-light p-3 rounded-full shadow-lg transition-opacity duration-300 opacity-0 pointer-events-none hover:bg-indigo-700" aria-label="Back to top">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+    </button>
+
+    <script>
+        // Feature 1: Dynamic Copyright Year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Feature 2 & 3: Sticky Navigation and Back-to-Top Button
+        const navbar = document.getElementById('navbar');
+        const backToTopButton = document.getElementById('back-to-top');
+        const heroSection = document.getElementById('hero');
+        const stickyThreshold = heroSection ? heroSection.offsetHeight * 0.5 : 200; // 50% of hero height or 200px fallback
+
+        function handleScroll() {
+            const scrollY = window.scrollY;
+
+            // Handle Sticky Navigation
+            if (scrollY > 50) {
+                navbar.classList.add('sticky-nav-active');
+            } else {
+                navbar.classList.remove('sticky-nav-active');
+            }
+
+            // Handle Back-to-Top Button Visibility
+            if (scrollY > stickyThreshold) {
+                backToTopButton.classList.remove('opacity-0', 'pointer-events-none');
+                backToTopButton.classList.add('opacity-100');
+            } else {
+                backToTopButton.classList.remove('opacity-100');
+                backToTopButton.classList.add('opacity-0', 'pointer-events-none');
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        backToTopButton.addEventListener('click', scrollToTop);
+
+        // Feature 4: Skill Bar Animation on Intersect
+        const skillItems = document.querySelectorAll('.skill-item');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillItem = entry.target;
+                    // Note: data-skill-level is a percentage (40, 60, 80, 100) based on the star rating
+                    const level = skillItem.getAttribute('data-skill-level'); 
+                    const bar = skillItem.querySelector('.skill-bar-inner');
+
+                    // Set the width to animate the bar
+                    bar.style.width = `${level}%`;
+
+                    // Stop observing after the animation has run once
+                    observer.unobserve(skillItem);
+                }
+            });
+        }, {
+            // Options: Start observing when the skill bar is 100px from the viewport bottom
+            rootMargin: '0px 0px -100px 0px',
+            threshold: 0.1
+        });
+
+        skillItems.forEach(item => {
+            observer.observe(item);
+        });
+
+    </script>
+</body>
+</html>
